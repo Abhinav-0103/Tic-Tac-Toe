@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Tic-Tac-Toe{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 flex flex-col items-center justify-center text-gray-800">
+  <main class="w-full max-w-md p-6 bg-white shadow-xl rounded-xl">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
