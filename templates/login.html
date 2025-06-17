@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Join Game{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold text-center mb-6">Enter username and join a game</h1>
+<form action="/create_room" method="POST" class="flex flex-col gap-4">
+  <input
+    type="text"
+    name="username"
+    id="username"
+    placeholder="Enter Username"
+    class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  <button
+    type="submit"
+    id="name-btn"
+    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
+  >
+    Join Game
+  </button>
+  <a
+    href="/gamecode"
+    class="text-center text-blue-500 hover:underline text-sm mt-2"
+  >
+    or Join an Existing Game
+  </a>
+</form>
+{% endblock %}
+
+<script>
+    socketio = io()
+    const btn = document.getElementById("name-btn")
+    const inputName = document.getElementById("username")
+
+    let name = inputName.value
+
+    btn.addEventListener("click", () => {
+        socketio.emit("join", {"username": name})
+        alert(name)
+    })
+</script>

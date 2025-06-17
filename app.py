@@ -7,4 +7,13 @@ socketio = SocketIO()
 if __name__ == '__main__':
     app = create_app()
     socketio.init_app(app)
-    socketio.run(app)
+
+    @socketio.on("connect")
+    def handle_connect() :
+        print("Client Connected")
+
+    @socketio.on("join")
+    def handle_join() :
+        print("Player has joined")
+
+    socketio.run(app, debug=True)

@@ -10,8 +10,9 @@
 <div class="grid grid-cols-3 gap-2 w-full aspect-square">
   {% for i in range(9) %}
   <div
-    class="cell flex items-center justify-center text-4xl font-bold border border-gray-300 cursor-pointer select-none rounded-lg hover:bg-gray-100 transition"
+    class="cell flex items-center justify-center text-2xl font-bold border border-gray-300 cursor-pointer select-none rounded-lg hover:bg-gray-100 transition"
     data-cell="{{ i }}"
+    id="{{ i }}"
   ></div>
   {% endfor %}
 </div>

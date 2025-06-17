@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from flask_socketio import SocketIO
+from flask import Flask
 from routes import create_routes
 
 def create_app():
