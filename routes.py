@@ -1,5 +1,6 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request, url_for
 import uuid
+from collections import defaultdict
 
 def create_routes(app) :
     @app.route("/")
@@ -12,9 +13,11 @@ def create_routes(app) :
     
     @app.route("/room/<id>")
     def game_room(id) :
-        return render_template("game.html")
+        name = request.args.get("name")
+        return render_template("game.html", id=id, name=name)
     
     @app.route("/create_room", methods=["POST"])
     def create_room() :
+        name = request.form.get("username")
         roomid = str(uuid.uuid4())
-        return redirect(f"/room/{roomid}")
+        return redirect(url_for("game_room", id=roomid, name=name))

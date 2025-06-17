@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Abhinav-0103/Tic-Tac-Toe#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.10",
+    "socket.io-client": "^4.8.1",
     "tailwindcss": "^4.1.10"
   }
 }
